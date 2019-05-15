@@ -28,18 +28,19 @@ function translateSql(obj) {
 
 var orm = {
     selectAll: function (table, cb) {
-        var dbQuery = "SELECT * FROM" + table + ";";
-
+        var dbQuery = "SELECT * FROM " + table + ";";
+console.log(dbQuery);
         connection.query(dbQuery, function (err, res) {
+            console.log("orm selectAll")
             if (err) {
                 throw err;
             }
             cb(res);
         });
-    }
+    },
     insertOne: function (table, cols, vals, cb) {
         var dbQuery =
-            "INSERT INTO" +
+            "INSERT INTO " +
             table +
             " (" +
             closed.toString() +
@@ -54,10 +55,10 @@ var orm = {
             }
             cb(res);
         });
-    }
+    },
 updateOne: function (table, objColVals, condition, cb) {
         var dbQuery =
-            "UPDATE" +
+            "UPDATE " +
             table + " SET " +
             translateSql(objColVals) +
             " WHERE " +
@@ -70,7 +71,7 @@ updateOne: function (table, objColVals, condition, cb) {
             }
             cb(res);
         });
-    }
+    },
 deleteOne: function (table, condition, cb) {
         var dbQuery = "DELELTE FROM " + table + " WHERE " + condition;
 
@@ -83,3 +84,5 @@ deleteOne: function (table, condition, cb) {
         });
     }
 };
+
+module.exports = orm;

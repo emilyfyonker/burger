@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="jumbotron">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7vSPycP6u1_giLsq9n-5mIyLnNIyawxuo3oL2ptAZ36jRkcwsog" width="auto" height="auto">
+		<img src="assets/img/burger.png" width="30%" height="30%">
 		<h1>Eat Burgers!!!</h1>
 	</div>
 	
@@ -18,10 +18,9 @@
 	 		  	<p class="lead">{{this.burger_name}}</p>
 	 		  	<span class="input-group-btn">
 
-	 		  		<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-	 		  			<input type="hidden" name="devoured" value="true">
-	 		  			<button class="btn btn-default btn-lg" type="submit">Devour it!</button>
-	 		  		</form>
+	 		  	
+	 		  			<button class="btn btn-default btn-lg" data-id="{{this.id}}" type="submit">Devour it!</button>
+	 		  		
 	 		  	</span>
 	 		  </div>
 	 		 </li>
