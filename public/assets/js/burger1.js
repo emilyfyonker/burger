@@ -1,9 +1,9 @@
 $(function () {
-    $(".create-form").on("submit", function (event) {
-        EventTarget.preventDefault();
+    $(".createburger").on("click", function (event) {
+        event.preventDefault();
 
         var newBurger = {
-            burger_name: $("#newBurger")
+            burger_name: $(".newBurger")
                 .val()
                 .trim(),
             devoured: 0
@@ -19,7 +19,7 @@ $(function () {
 
     $(".eatburger").on("click", function (event) {
         event.preventDefault();
-
+        console.log("eat burger button clicked")
         var id = $(this).data("id");
         var devouredState = {
             devoured: 1

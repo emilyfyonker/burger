@@ -14,9 +14,9 @@ function createQmarks(num) {
 //this function returns the SQL to a readable query
 function translateSql(obj) {
     var arr = [];
-    for (var key in ob) {
-        var value = ob[key];
-        if (Object.hasOwnProperty.call(ob, key)) {
+    for (var key in obj) {
+        var value = obj[key];
+        if (Object.hasOwnProperty.call(obj, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
@@ -43,7 +43,7 @@ console.log(dbQuery);
             "INSERT INTO " +
             table +
             " (" +
-            closed.toString() +
+            cols.toString() +
             ") " +
             "VALUES (" +
             createQmarks(vals.length) +
@@ -65,7 +65,7 @@ updateOne: function (table, objColVals, condition, cb) {
             condition;
 
         console.log(dbQuery);
-        connection.query(dbQuery, vals, function (err, res) {
+        connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;
             }
